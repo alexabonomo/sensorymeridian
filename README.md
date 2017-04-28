@@ -13,6 +13,6 @@ From the command line, navigate into the project directory:
 
 `git submodule update`
 
-Next, from the command line, run the python local server (and open your browser to `http://localhost:8888`):
+Next, from the command line, run the python local server (and open your browser to `http://localhost:8888/demo`):
 
 `python -m SimpleHTTPServer 8888 & open http://localhost:8888`
