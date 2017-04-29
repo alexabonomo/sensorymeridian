@@ -1,4 +1,5 @@
 var camMotion; // globals
+var song 
 
 setupCamera();
 
@@ -11,9 +12,16 @@ function setupCamera(){
   camMotion.start();
 }
 
+function preload (){
+	mySound = loadSound('ASMR.mp3');
+
+}
 
 function setup() {
   createCanvas(640, 480);
+  mySound.setVolume(0.1);
+  mySound.play();
+
 }
 
 function draw() {
@@ -21,6 +29,6 @@ function draw() {
   console.log("motion detected at point:", point);
   strokeWeight(0);
   fill(230,197,92);
-  ellipse(point.x, point.y, 7, 7);
+  ellipse(point.x, point.y, 8, 8);
 }
 
