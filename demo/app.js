@@ -24,25 +24,19 @@ function setup() {
   mySound.play();
   var chrome = [
     fill(111,184,232),
-    fill(85, 182,178),
+    fill(85,182,178),
     fill(198,218,198),
     fill(197,192,151),
     fill(223,152,63)
   ];
-
-  print(chrome);
-
+  print(chrome[3]);
 }
 
 function draw() {
   var point = camMotion.getMovementPoint(true);
   console.log("motion detected at point:", point);
   strokeWeight(0);
-
-  var colorz = random(chrome);
-
-colorz();
-
-  print(colorz);
+  //random(chrome);
+chrome[3];
   ellipse(point.x, point.y, 6, 6);
 }
