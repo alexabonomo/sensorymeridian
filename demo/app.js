@@ -1,5 +1,6 @@
 var camMotion; // globals
-var song 
+var song;
+var chrome = [];
 
 setupCamera();
 
@@ -18,9 +19,18 @@ function preload (){
 }
 
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(1080, 1920);
   mySound.setVolume(0.1);
   mySound.play();
+  var chrome = [
+    fill(111,184,232),
+    fill(85, 182,178),
+    fill(198,218,198),
+    fill(197,192,151),
+    fill(223,152,63)
+  ];
+
+  print(chrome);
 
 }
 
@@ -28,7 +38,11 @@ function draw() {
   var point = camMotion.getMovementPoint(true);
   console.log("motion detected at point:", point);
   strokeWeight(0);
-  fill(230,197,92);
-  ellipse(point.x, point.y, 8, 8);
-}
 
+  var colorz = random(chrome);
+
+colorz();
+
+  print(colorz);
+  ellipse(point.x, point.y, 6, 6);
+}
