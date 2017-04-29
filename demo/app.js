@@ -19,6 +19,8 @@ function setup() {
 function draw() {
   var point = camMotion.getMovementPoint(true);
   console.log("motion detected at point:", point);
-  fill(255);
-  ellipse(point.x, point.y, 20, 20);
+  strokeWeight(0);
+  fill(230,197,92);
+  ellipse(point.x, point.y, 7, 7);
 }
+
