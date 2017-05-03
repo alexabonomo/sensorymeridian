@@ -13,15 +13,14 @@ function setupCamera(){
   camMotion.start();
 }
 
-function preload (){
-	mySound = loadSound('ASMR.mp3');
-
-}
+// function preload (){
+// 	mySound = loadSound('ASMR.mp3');
+// }
 
 function setup() {
   createCanvas(1080, 1920);
-  mySound.setVolume(0.1);
-  mySound.play();
+  // mySound.setVolume(0.1);
+  // mySound.play();
   colors[0] = color(111,184,232);
   colors[1] = color(85,182,178);
   colors[2] = color(198,218,198);
