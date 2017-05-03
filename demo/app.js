@@ -35,12 +35,13 @@ function draw() {
   //console.log("motion detected at point:", point);
   strokeWeight(0);
 
+
   //the color issue was that the random was making floats with decimals and I used round to round up to the next integer.
   var col = round(int(random(0, 4)));
   console.log("line of stuff ", colors[col]);
 
   //ellipse(point.x, point.y, 4, 4);
-  //I commented out the above code and camera stuff and set the dots to appear following the mouse. 
+  //I commented out the above code and camera stuff and set the dots to appear following the mouse.
   //since the other group is using motion capture and we only have one computer
   //I think we should just do a visual sound piece With the grains of sand and audio
 
