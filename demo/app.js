@@ -8,9 +8,10 @@ var theta = 0.0;      // Start angle at 0
 var amplitude = 90.0; // Height of wave
 var period = 250.0;   // How many pixels before the wave repeats
 var dx;               // Value for incrementing x
-var yvalues;  // Using an array to store height values for the wave
+var waves = [];  // Using an array or arrays to store height values for each wave
 var colors = []; // Array of colors
 var mySound;
+var numberOfWaves = 3;
 
 function preload (){
   setupSound(); // TODO: uncomment function code!
@@ -19,38 +20,46 @@ function preload (){
 function setup() {
   setupColors();
   playSound();// TODO: uncomment function code!
+  frameRate(10);
+
 
   createCanvas(window.outerWidth, window.outerHeight); // fills browser window
   w = width+16;
   dx = (TWO_PI / period) * xspacing;
-  yvalues = new Array(floor(w/xspacing));
+
+  while(numberOfWaves--){
+    waves.push(new Array(floor(w/xspacing)))
+  }
 }
 
 function draw() {
   background(0)
-  calcWave();
-  renderWave();
+  for(var i=0; i<waves.length; i++){
+    calcWave(waves[i], i);
+    renderWave(waves[i], i);
+  }
 }
 
-function calcWave() {
+function calcWave(waves, offset) {
   // Increment theta (try different values for
   // 'angular velocity' here)
   theta += 0.02;
 
   // For every x value, calculate a y value with sine function
   var x = theta;
-  for (var i = 0; i < yvalues.length; i++) {
-    yvalues[i] = sin(x)*amplitude;
+  for (var i = 0; i < waves.length; i++) {
+    waves[i] = sin(x)*amplitude;
     x+=dx;
   }
 }
 
-function renderWave() {
+function renderWave(waves, offset) {
+  var leftSpacing = offset*period;
   noStroke();
   // A simple way to draw the wave with an ellipse at each location
-  for (var x = 0; x < yvalues.length; x++) {
+  for (var x = 0; x < waves.length; x++) {
     fill(randColor());
-    ellipse(height/2+yvalues[x], x*xspacing, 8, 8);
+    ellipse(leftSpacing+height/2+waves[x], x*xspacing, random(1,6));
   }
 }
 
