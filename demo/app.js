@@ -89,7 +89,7 @@ function setupColors() {
 }
 
 function randColor() {
-  return colors[int(random(0, colors.length-1))];
+  return colors[int(random(0, colors.length))];
 }
 
 // TODO: uncomment these when we're ready
