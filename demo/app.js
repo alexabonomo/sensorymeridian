@@ -2,16 +2,26 @@
  * Source: https://p5js.org/examples/math-sine-wave.html
 */
 
-var xspacing = 8;    // Distance between each horizontal location
-var w;                // Width of entire wave
-var theta = 0.0;      // Start angle at 0
-var amplitude = 90.0; // Height of wave
-var period = 250.0;   // How many pixels before the wave repeats
-var dx;               // Value for incrementing x
-var waves = [];  // Using an array or arrays to store height values for each wave
 var colors = []; // Array of colors
 var mySound;
+
 var numberOfWaves = 3;
+var waves = [];  // Using an array or arrays to store height values for each wave
+
+
+
+var xspacing = 8;    // Distance between each horizontal location
+var W;                // Width of entire wave
+var THETA = 0.0;      // Start angle at 0
+var AMPLITUDE = 90.0; // Height of wave
+var PERIOD = 250.0;   // How many pixels before the wave repeats
+var DX;               // Value for incrementing x
+var MARGIN = 200; // space between waves
+
+
+
+
+
 
 function preload (){
   setupSound(); // TODO: uncomment function code!
@@ -24,42 +34,49 @@ function setup() {
 
 
   createCanvas(window.outerWidth, window.outerHeight); // fills browser window
-  w = width+16;
-  dx = (TWO_PI / period) * xspacing;
+  W = width+16;
+  DX = (TWO_PI / PERIOD) * xspacing;
 
-  while(numberOfWaves--){
-    waves.push(new Array(floor(w/xspacing)))
+  for(var i=0; i<numberOfWaves; i++){
+    // build up an array of waves with different initial configuration values;
+    waves.push({
+      values: new Array(floor(W/xspacing)),
+      theta: random(0,2), //THETA: give each wave a random starting point
+      amplitude: random(10, AMPLITUDE),
+      period: random(10, PERIOD),
+      dx: DX
+    })
   }
 }
 
 function draw() {
   background(0)
   for(var i=0; i<waves.length; i++){
-    calcWave(waves[i], i);
+    calcWave(waves[i]);
     renderWave(waves[i], i);
   }
 }
 
-function calcWave(waves, offset) {
+function calcWave(wave) {
   // Increment theta (try different values for
   // 'angular velocity' here)
-  theta += 0.02;
+  wave.theta += 0.02;
 
   // For every x value, calculate a y value with sine function
-  var x = theta;
-  for (var i = 0; i < waves.length; i++) {
-    waves[i] = sin(x)*amplitude;
-    x+=dx;
+  var x = wave.theta;
+  for (var i = 0; i < wave.values.length; i++) {
+    wave.values[i] = sin(x)*wave.amplitude;
+    x+=wave.dx;
   }
 }
 
-function renderWave(waves, offset) {
-  var leftSpacing = offset*period;
+function renderWave(wave, offset) {
+  var leftSpacing = offset*MARGIN;
   noStroke();
   // A simple way to draw the wave with an ellipse at each location
-  for (var x = 0; x < waves.length; x++) {
+  for (var x = 0; x < wave.values.length; x++) {
     fill(randColor());
-    ellipse(leftSpacing+height/2+waves[x], x*xspacing, random(1,6));
+    ellipse(leftSpacing+height/2+wave.values[x], x*xspacing, random(1,6));
   }
 }
 
