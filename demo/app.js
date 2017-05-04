@@ -27,7 +27,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(0)
   calcWave();
   renderWave();
 }
