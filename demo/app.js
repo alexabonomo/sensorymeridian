@@ -52,7 +52,7 @@ function setup() {
 }
 
 function draw() {
-  image(bgimage, 0, 0)
+  image(bgimage, 0, 0, width)
   for(var i=0; i<waves.length; i++){
     calcWave(waves[i]);
     renderWave(waves[i], i);
