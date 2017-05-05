@@ -2,6 +2,7 @@
  * Source: https://p5js.org/examples/math-sine-wave.html
 */
 
+var bgimage;
 var colors = []; // Array of colors
 var mySound;
 
@@ -25,6 +26,7 @@ var MARGIN = 200; // space between waves
 
 function preload (){
   setupSound(); // TODO: uncomment function code!
+  bgimage = loadImage("backgroundtexture.jpg");
 }
 
 function setup() {
@@ -50,7 +52,7 @@ function setup() {
 }
 
 function draw() {
-  background(0)
+  image(bgimage, 0, 0)
   for(var i=0; i<waves.length; i++){
     calcWave(waves[i]);
     renderWave(waves[i], i);
