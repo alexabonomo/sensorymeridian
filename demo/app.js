@@ -53,7 +53,7 @@ function setup() {
 }
 
 function draw() {
-  image(bgimage, 0, 0, width)
+  image(bgimage, 0, 0, width, height)
   for(var i=0; i<waves.length; i++){
     calcWave(waves[i]);
     renderWave(waves[i], i);
@@ -74,12 +74,12 @@ function calcWave(wave) {
 }
 
 function renderWave(wave, offset) {
-  var leftSpacing = offset*MARGIN;
+  var leftSpacing = offset//*MARGIN;
   noStroke();
   // A simple way to draw the wave with an ellipse at each location
   for (var x = 0; x < wave.values.length; x++) {
     fill(randColor());
-    ellipse(leftSpacing+height/2+wave.values[x], x*xspacing, random(1,6));
+    ellipse(width/2+wave.values[x], x*xspacing, random(1,6));
   }
 }
 
