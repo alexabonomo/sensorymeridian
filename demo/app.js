@@ -19,7 +19,8 @@ var PERIOD = 250.0;   // How many pixels before the wave repeats
 var DX;               // Value for incrementing x
 var MARGIN = 200; // space between waves
 
-
+var width = 720;
+var height = 1280;
 
 
 
@@ -35,7 +36,7 @@ function setup() {
   frameRate(10);
 
 
-  createCanvas(720, 1280);
+  createCanvas(width, height);
   W = width+16;
   DX = (TWO_PI / PERIOD) * xspacing;
 
