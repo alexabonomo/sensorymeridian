@@ -36,7 +36,7 @@ function setup() {
   frameRate(10);
 
 
-  createCanvas(width, height);
+  createCanvas(720, 1280);
   W = width+16;
   DX = (TWO_PI / PERIOD) * xspacing;
 
