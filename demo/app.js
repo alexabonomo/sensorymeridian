@@ -35,7 +35,7 @@ function setup() {
   frameRate(10);
 
 
-  createCanvas(window.outerWidth, window.outerHeight); // fills browser window
+  createCanvas(720, 1280);
   W = width+16;
   DX = (TWO_PI / PERIOD) * xspacing;
 
