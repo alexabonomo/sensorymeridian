@@ -102,3 +102,13 @@ function playSound() {
   // mySound.setVolume(0.1);
   // mySound.play();
 }
+
+
+
+// set browser window to full screen when canvas clicked in top left corner.
+function mousePressed() {
+  if (mouseX > 0 && mouseX < 100 && mouseY > 0 && mouseY < 100) {
+    var fs = fullscreen();
+    fullscreen(!fs);
+  }
+}
